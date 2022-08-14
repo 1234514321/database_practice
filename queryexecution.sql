@@ -28,5 +28,19 @@ INSERT INTO person1(person_id, person_name, person_surname,  birth_date, drivepr
 VALUES(1, 'OLEG', 'OLEGOV', '2022-11-12', 'A');
 
 SELECT p.person_name from person_parent
-JOIN person_parent as p on p.parent_id = person_parent.person_id
+  JOIN person_parent as p on p.parent_id = person_parent.person_id
 WHERE person_parent.person_name = 'B';
+
+SELECT state_name FROM state
+  JOIN person_state ON state.state_id = person_state.state_id
+  JOIN person ON person.person_id = person_state.person_id
+  JOIN profession ON profession.profession_id = person.profession_id
+WHERE (profession_name = 'mathematician') and (person_gender = 'M');
+
+SELECT mid_weight FROM type
+  JOIN dinosaur ON type.dinosaur_id = dinosaur.dinosaur_id
+  LEFT JOIN person_dinosaur ON person_dinosaur.dinosaur_type_id = dinosaur.dinosaur_type_id
+  JOIN person ON person.person_id = person_dinosaur.person_id
+  JOIN person_state ON person.person_id = person_state.person_id
+  JOIN state ON state.state_id = person_state.state_id
+WHERE (state_name = 'boring') or (state_name = 'nervous');
