@@ -23,11 +23,11 @@
 
 ### Инфологическая модель
 
-![](photo/infmodel.png)
+![](photo/infmodel.PNG)
 
 ### Даталогическая модель
 
-![](photo/datamodel.png)
+![](photo/datamodel.PNG)
 
 
 
